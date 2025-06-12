@@ -1,47 +1,42 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
 
-#define fastio                        \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
+#define int long long
+#define endl '\n'
 
-#define int long long int
-#define ld long double
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> oSet; // [find_by_order ==> given address at index] |==| [order_of_key ==> Number of element smaller then X]
-
-const int mod = 1e9 + 7;
-const int N = 2e5 + 10;
-int t, n, q;
-int pre[N], in[N], post[N];
-unordered_map<int, int> freq;
-
-void solve(int pl, int pr, int il, int ir)
+vector<int> pre, in;
+int a[100005];
+int x = 0, n;
+void post(int l = 0, int h = n - 1)
 {
-    if (pl == pr)
+    if (l > h)
     {
-        post[pr] = in[pr];
+        x--;
         return;
     }
-    post[pr] = pre[pl];
+    int i = a[pre[x]];
+    ++x;
+    post(l, i - 1);
+    ++x;
+    post(i + 1, h);
+    cout << in[i] << ' ';
 }
-
-int32_t main()
+signed main()
 {
-    fastio;
+
     cin >> n;
-
-    for (int i = 0; i < n; i++)
-        cin >> pre[i];
-
     for (int i = 0; i < n; i++)
     {
-        cin >> in[i];
-        freq[in[i]] = i;
+        int x;
+        cin >> x;
+        pre.push_back(x);
     }
-
-    return 0;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        in.push_back(x);
+        a[x] = i;
+    }
+    post();
 }
