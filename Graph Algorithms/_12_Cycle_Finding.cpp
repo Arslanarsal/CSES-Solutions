@@ -72,7 +72,7 @@ int32_t main()
     {
         cout << cycle[i] << " ";
     }
-    cout << "\n";
+    
 
     return 0;
 }
