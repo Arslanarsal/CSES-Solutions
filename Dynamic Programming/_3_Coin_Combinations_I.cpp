@@ -7,9 +7,8 @@ int main()
     cin >> n >> x;
     vector<int> arr(n);
     for (int i = 0; i < n; i++)
-    {
         cin >> arr[i];
-    }
+    
 
     vector<int> dp(x + 1, 0);
     dp[0] = 1;
