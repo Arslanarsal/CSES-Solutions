@@ -4,10 +4,7 @@
 using namespace std;
 using namespace __gnu_pbds;
 
-#define fastio                        \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
+
 
 #define int long long int
 #define ld long double
@@ -38,9 +35,7 @@ vector<int> solve(vector<int> arr)
 
 int32_t main()
 {
-    fastio;
     t = 1;
-    // cin >> t;
     while (t--)
     {
 
